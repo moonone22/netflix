@@ -1,38 +1,522 @@
-.App {
+
+@font-face{
+  font-family: "DoHyeon";
+  src: url("./fonts/GmarketSansTTFBold.ttf");
+}
+#root{
+  overflow: hidden;
+}
+body {
+  background-color: black!important;
+  
+}
+
+h1,h2,h3,h4,h5,p,span{
+  color: white;
+  font-family:'DoHyeon';
+}
+.nav-item{
+  color:white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+.banner{
+  position: relative;
+  height: 80vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  }
+  .banner::before{
+    position: absolute;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: linear-gradient(to right, black, transparent);
+    content: '';
+  }
+.banner_info{
+  width:40%;
+  z-index: 1;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.rankBox{
+  display: flex;
+}
+.rankBox h1{
+  margin: 0 auto;
+}
+.moviespage{
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  margin-top:100px;
+}
+.optionMovie{
+  width: 500px;
+  height: 500px;
+  margin-top: 171px;
+}
+.optionMovie h1 {
+font-size: 20px;
+;
+}
+.resultMovies{
+  margin-top: 100px;
+
+}
+
+.toggleGenres{
+  background-color: red;
+  border:1px solid red;
+  color:white;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin:2px;
+}
+.noToggle{
+  background-color: black;
+  border:1px solid red;
+  border-radius: 10px;
+  padding: 5px 10px;
+  color:white;
+  margin:2px;
+}
+.range{
+  height: 68px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  border: 1px solid red;
+}
+input[type='range']{
+
+  width: 100%;
+  cursor: pointer; 
+  background: black!important;
+  color: pink!important;
+  border-radius: 100px;
+}
+.yearBox{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 페이지네이션CSS */
+.pageNumber{
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.pageNumber li{
+  display: flex;
+  align-items: center;
+  padding:10px;
+  border: 1px solid black;
+  cursor:pointer;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.pageNumber li.avtive {
+  background-color: white;
+  color:black;
+  border-radius: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pageNumber li button  {
+  background-color: transparent;
+  border:none;
+  color: white;
+  font-size: 1.5rem;
+  cursor:pointer;
+}
+
+.pageNumber li button:hover {
+  background-color: rgb(152, 21, 21);
+  color:white;
+  border-radius: 10px;
+  box-shadow: 1px 3px 3px white;
+}
+.badge{
+  margin: 5px;
+}
+.underText{
+  font-size: 19px;
+    color: orange;
+    font-family: fantasy;
+}
+.voteAverage img{
+  margin-right: 8px;
+}
+.voteAverage{
+  font-size: 18px;
+  font-family: fantasy;
+}
+.cardBottom{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.cardBottom svg{
+  font-size: 29px;
+  color: white;
+  cursor: pointer;
+}
+
+
+
+.overlay{
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:  rgba(43,41,41,0.9);
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+}
+.cardMovie:hover .overlay{
+  opacity:1;
+  background:  rgba(43,41,41,0.9);
+  width: 100%;
+  height: 100%;
+  border-radius:15px;
+  
+}
+
+.cardMovie{
+  width:200px;
+  height: 300px;
+  background-position: center;
+  background-size: cover;
+  margin: 0 auto;
+  border-radius:15px;
+  margin-top: 15px!important;
+}
+
+.cardMovie h1{
+  font-size: 20px;
+  width: 131px;
+  height: 47px;
+  text-align: center;
+  margin-top: 28px;
+  overflow: hidden;
+}
+.react-multi-carousel-list{
+  overflow: visible!important;
+}
+.LOGO{
+  margin-right: 50px;
+  width: 95px;
+  height: 25px;
+  margin-bottom: 10px;
+}
+.LOGO svg{
+  width: 95px;
+  height: 25px;
+  fill:red;
+  
+}
+.LOGO path {
+  stroke-width: 20px;
+    stroke: white;
+}
+.nav-item{
+  position: relative;
+  
+}
+.nav-item button{
+    width: 240px;
+    height: 78px;
+    color: white!important;
+    font-size: 24px;
+    font-family:'DoHyeon';
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+  background: white!important;
+  color:black!important;
+}
+.Circle{
+  position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 5px;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: red;
+}
+
+
+.navbar{
+  
+    z-index: 999!important;
+    width: 100%!important;
+}
+
+.loadingPage{
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+.loadingPage span{
+  font-size: 500px;
+}
+
+.detailBox{
+  text-align: center;
+  color:white;
+}
+.detailBox img{
+  border-radius: 20px;
+}
+.spantag{
+  margin-right:23px;
+}
+.spantag img{
+  margin-right: 3px;
+}
+.detailOverview{
+    border-top: 1px solid #fff;
+    font-size: 14px;
+    margin-top:20px;
+    padding:20px;
+}
+.DetailBudge{
+  padding:20px;
+  border-top: 1px solid #fff;
+  list-style: none;
+  text-align: start;
+  border-bottom: 1px solid #fff;
+  padding-left: 197px;
+    padding-top: 41px;
+}
+.budgeBox{
+  font-weight: 500;
+    width: 120px;
+    display: inline-block;
+    background-color: #dc143c;
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 30px;
+    margin-bottom: 15px;
+}
+.rightbox{
+  margin-top: 189px!important;
+}
+.leftbox{
+  margin-top: 150px!important;
+}
+
+.modal-content{
+  background-color: #2e12122e !important;
+  color:white;
+}
+.btn-close{
+  background-color: rgb(243, 220, 199)!important;
+}
+.modal-header{
+  color:white!important;
+}
+.btn{
+  margin-top: 55px;
+}
+
+.ytp-gradient-top{
+  display: none!important;
+}
+.detailCard{
+  margin:10px;
+}
+.mb-3{
+  margin-top: 40px;
+  justify-content: space-evenly;
+}
+.reviewNot{
+  padding:100px;
+}
+
+
+.MycardMovie{
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    display: flex;
+    height: 300px;
+    margin-bottom: 40px;
+    width: 360px;
+    position: relative;
+    border:1.5px solid white;
+    box-shadow: 3px 3px 3px white;
+}
+.MyCardInfo{
+  background: linear-gradient(90deg,#0d0d0c 50%,transparent);
+  border-radius: 25px;
+  padding: 30px;
+  position: absolute;
+  width: 100% inherit;
+  width: 84%;
+  height: 100%;
+  opacity: 1;
+}
+
+
+.MycardMovie:hover .MyCardInfo{
+  opacity:0;
+  display: none;
+
+}
+.MyCardtitle{
+  display: flex;
+  align-items: center;
+}
+.MyCardtitle img{
+  width: 50px;
+  height: 80px;
+}
+.MyCardtitle span{
+  margin-left: 26px;
+  width: 120px;
+}
+
+.MycardOverview{
+  font-size: 5px;
+  margin-top: 10px;
+}
+
+.mycardoverlay{
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background:  rgba(43,41,41,0.9);
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  
+}
+.mycardoverlay h1{
+font-size: 20px;
+}
+.MycardMovie:hover .mycardoverlay{
+  opacity:1;
+  background:  rgba(43,41,41,0.9);
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+}
+
+.ss svg{
+  font-size: 38px;
+}
+.myMovieBox{
+  margin-right: 100px;
+}
+.myMovieBBox{
+  margin-top: 30px;
+}
+
+.personBox{
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  height: 200px;
+  margin: 32px;
+}
+.creditBox{
+  overflow: hidden;
+  height: 400px;
+  margin-top:100px!important;
+}
+.personBox h1{
+  font-size:15px;
+}
+.personText{
+  margin-top: 10px;
+}
+
+.spinner-border{
+  width: 100px!important;
+  height: 100px!important;
+}
+
+.dropdown-menu {
+    position: absolute;
+    inset: 0px auto auto 0px;
+    transform: translate3d(0px, 95.3333px, 0px);
+    width: 50%;
+    text-align: center!important;
+}
+.dropdown-toggle {
+  width: 100%;
+  text-align: center;
+  background: black!important;
+  border: 1px solid red!important;
+  width: 50%;
+}
+.sortBox{
+  border: 1px solid white;
+  text-align: center;
+}
+
+.sortBox h1{
+  position: relative;
+  top: 20px;
+}
+.dropdown {
+  top: -20px;
+}
+.yearBox{
+  border: 1px solid white;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px;
+}
+.gBox{
+  border: 1px solid white;
+  margin-top: 10px;
+  text-align: center;
+  padding: 10px;
+}
+.adultImg{
+  background-color: black;
+}
+
+.searchBtn{
+  background: none;
+  border: none;
+}
+.searchBtn svg{
+  color: white;
+  position: relative;
+  font-size: 30px;
+}
+.bannerBtn{
+  width: 150px;
+  height: 50px;
+  background: #ffffff8a;
+  border-radius: 10px;
+}
+.bannerBtn:hover{
+  background: #0b44368a;
+  color:white;
+}
+
+.trailer h3{
+  color: black;
+}
+.trailer{
+  height: 78px;
+}
+.tab-content{
+  margin-top: 100px!important;
 }
